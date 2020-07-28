@@ -46,6 +46,7 @@ export const VideoCardList = styled.ul`
   &::-webkit-scrollbar {
     display: none;
   }
+
   li {
     margin-right: 10px;
   }
