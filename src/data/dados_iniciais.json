@@ -1,0 +1,120 @@
+{
+  "categorias": [
+    {
+      "titulo": "Rock",
+      "cor": "#FFB42A",
+      "videos": [
+        {
+          "titulo": "Queen - Bohemian Rhapsody cover by @Halocene, @First To Eleven, @Violet Orlandi, @Lauren Babic",
+          "url": "https://youtu.be/9fTDV5cedJQ"
+        },
+        {
+          "titulo": "AC/DC - Back in Black (cover by Sershen&Zaritskaya feat. Kim and Shturmak)",
+          "url": "https://youtu.be/f2p0xrY4CMs"
+        },
+        {
+          "titulo": "KISS - Detroit Rock City (cover by Sershen&Zaritskaya feat. Kim and Shturmak)",
+          "url": "https://youtu.be/6pt3590_ptc"
+        },
+        {
+          "titulo": "IRIS - Goo Goo Dolls (Rock cover by Jonathan Young)",
+          "url": "https://youtu.be/-poPQhpb4fU"
+        },
+        {
+          "titulo": "Scorpions - Still Loving You (Violet Orlandi cover)",
+          "url": "https://youtu.be/HBMOKoH4CmA"
+        },
+        {
+          "titulo": "Guns'n'Roses - Welcome To The Jungle cover by Sershen&Zaritskaya (feat. Kim, Ross and Shturmak)",
+          "url": "https://youtu.be/jTks3yqR9mI"
+        }
+      ]
+    },
+    {
+      "titulo": "Pop",
+      "cor": "#FFDC9D",
+      "videos": [
+        {
+          "titulo": "",
+          "url": ""
+        },
+        {
+          "titulo": "Michael Jackson - Billie Jean ( cover by J.Fla )",
+          "url": "https://youtu.be/J1AdPY73qxo"
+        },
+        {
+          "titulo": "Lay Me Down - Sam Smith - Diamond White Cover",
+          "url": "https://youtu.be/mwBGGh2fhfU"
+        },
+        {
+          "titulo": "Just The Way You Are - Bruno Mars (Boyce Avenue acoustic/piano cover) on Spotify & Apple",
+          "url": "https://youtu.be/GhFSgnvKqm4"
+        },
+        {
+          "titulo": "Evolution of Beyoncé - Pentatonix",
+          "url": "https://youtu.be/QkR4asPMip4"
+        },
+        {
+          "titulo": "Photograph - Ed Sheeran (Boyce Avenue feat. Bea Miller acoustic cover) on Spotify & Apple",
+          "url": "https://youtu.be/tIA_vrBDC1g"
+        },
+        {
+          "titulo": "[Official Video] Rather Be - Pentatonix (Clean Bandit Cover)",
+          "url": "https://youtu.be/OPWPa-HMpj8"
+        }
+      ]
+    },
+    {
+      "titulo": "Sertanejo",
+      "cor": "#9cd33b",
+      "videos": [
+        {
+          "titulo": "",
+          "url": ""
+        },
+        {
+          "titulo": "Ícaro e Gilmar -- Pot-Pourri: Deixaria Tudo/É Tarde Demais/Preciso dar um tempo #Cover",
+          "url": "https://youtu.be/FsxL3nTkK_w"
+        },
+        {
+          "titulo": "Marília Mendonça - SUPERA (cover Isa Guerra)",
+          "url": "https://youtu.be/PgGEPPJNFEE"
+        },
+        {
+          "titulo": "Vou Ter Que Superar - Matheus e Kauan part. Marília Mendonça (Thayná Bitencourt - cover)",
+          "url": "https://youtu.be/0yJoWGX5D8I"
+        },
+        {
+          "titulo": "Sofia Oliveira part. Matheus e Kauan - Decide Aí (Cover)",
+          "url": "https://youtu.be/3WtnW4uyFIU"
+        }
+      ]
+    },
+    {
+      "titulo": "MPB",
+      "cor": "orange",
+      "videos": [
+        {
+          "titulo": "",
+          "url": ""
+        },
+        {
+          "titulo": "Mariana Nolasco 'João de Barro' (Cover)",
+          "url": "https://youtu.be/NijqihvlBhw"
+        },
+        {
+          "titulo": "Bem Que Se Quis - Marisa Monte (Stefano Cover)",
+          "url": "https://youtu.be/VAk9X2DeX0I"
+        },
+        {
+          "titulo": "Ana Gabriela - Quem de Nós Dois (cover) Ana Carolina",
+          "url": "https://youtu.be/Y2iaVSa5nEc"
+        },
+        {
+          "titulo": "'anunciação' Alceu Valença | cover Elana Dara",
+          "url": "https://youtu.be/8KGVlsjmPZk"
+        }
+      ]
+    }
+  ]
+}
