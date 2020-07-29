@@ -1,6 +1,8 @@
 import React from 'react';
 import SlickSlider from 'react-slick';
 import styled from 'styled-components';
+import Icon from '@mdi/react'
+import { mdiChevronRight, mdiChevronLeft } from '@mdi/js';
 
 const Container = styled.ul`
   padding: 0;
@@ -22,10 +24,51 @@ const Container = styled.ul`
   .slick-prev {
     left: 0;
   }
+
   .slick-next {
     right: 16px;
   }
 `;
+
+const Arrow = styled.div`
+  .shadow:hover {
+    transform: scale(1.5);
+  }
+`;
+
+function NextArrow(props) {
+  const { className, onClick } = props;
+  return (
+    <teste>
+      <Arrow>
+        <Icon path={mdiChevronRight}
+          title="Próximo"
+          size={2.5}
+          color="white"
+          className={`shadow ${className}`}
+          onClick={onClick}
+        />
+      </Arrow>
+    </teste>
+  );
+}
+
+function PrevArrow(props) {
+  const { className, onClick } = props;
+  return (
+    <Arrow>
+      <div>
+        <Icon path={mdiChevronLeft}
+          title="Anterior"
+          size={2.5}
+          color="white"
+          className={`shadow ${className}`}
+          onClick={onClick}
+        />
+      </div>
+    </Arrow>
+  );
+}
 
 export const SliderItem = styled.li`
   margin-right: 16px;
@@ -46,6 +89,8 @@ const Slider = ({ children }) => (
       centerMode: false,
       variableWidth: true,
       adaptiveHeight: true,
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />
     }}
     >
       {children}

@@ -8,8 +8,7 @@ function Categoria() {
       <PageDefault>
         <h1> Cadastro de Categoria</h1>
 
-        <form>
-
+        {/* <form>
           <label>
             Nome da Categoria:
           <input
@@ -20,8 +19,7 @@ function Categoria() {
           <button>
             Cadastrar
         </button>
-        </form>
-
+        </form> */}
 
         <Link to="/">
           Ir para home
