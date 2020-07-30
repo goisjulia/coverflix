@@ -10,8 +10,8 @@
   --grayLight: #f5f5f5;
   --grayMedium: #e5e5e5;
   --white: #ffffff;
-  --frontEnd: #ffc65d;
-  --backEnd: #ffdc9d;
+  --secondary: #ffc65d;
+  --tertiary: #ffdc9d;
 }
 
 html,
