@@ -12,9 +12,7 @@ const Container = styled.ul`
     z-index: 50;
     top: 0;
     bottom: 0;
-    margin: auto;
-    width: 30px;
-    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
     transform: initial;
     &:before {
       font-size: 30px;
@@ -26,30 +24,40 @@ const Container = styled.ul`
   }
 
   .slick-next {
-    right: 16px;
+    right: 0;
+  }
+
+  &:hover div{
+    opacity: 1;
   }
 `;
 
 const Arrow = styled.div`
-  .shadow:hover {
-    transform: scale(1.5);
+  opacity: 0;
+
+  svg {
+    height: calc(100% - 32px);
+    width: 40pt;
+    margin-bottom: 16px;
+    margin-top: 16px;
   }
+/*
+  .shadow:hover {
+  } */
 `;
 
 function NextArrow(props) {
   const { className, onClick } = props;
   return (
-    <teste>
-      <Arrow>
-        <Icon path={mdiChevronRight}
-          title="Próximo"
-          size={2.5}
-          color="white"
-          className={`shadow ${className}`}
-          onClick={onClick}
-        />
-      </Arrow>
-    </teste>
+    <Arrow>
+      <Icon path={mdiChevronRight}
+        title="Próximo"
+        // size={2.5}
+        color="white"
+        className={`shadow ${className}`}
+        onClick={onClick}
+      />
+    </Arrow>
   );
 }
 
@@ -60,7 +68,7 @@ function PrevArrow(props) {
       <div>
         <Icon path={mdiChevronLeft}
           title="Anterior"
-          size={2.5}
+          // size={2.5}
           color="white"
           className={`shadow ${className}`}
           onClick={onClick}
@@ -81,6 +89,7 @@ export const SliderItem = styled.li`
 `;
 
 const Slider = ({ children }) => (
+
   <Container>
     <SlickSlider {...{
       dots: false,
@@ -90,7 +99,16 @@ const Slider = ({ children }) => (
       variableWidth: true,
       adaptiveHeight: true,
       nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />
+      prevArrow: <PrevArrow />,
+      responsive: [
+        {
+          breakpoint: 800,
+          settings: {
+            arrows: false,
+            swipeToSlide: true
+          }
+        }
+      ]
     }}
     >
       {children}

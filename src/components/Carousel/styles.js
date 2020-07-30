@@ -2,19 +2,18 @@ import styled from 'styled-components';
 
 export const Title = styled.h3`
   font-style: normal;
-  font-weight: normal;
-  font-size: 35px;
-  /* background: #FFB42A; */
+  font-weight: 500;
+  font-size: 22pt;
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 0;
+  margin-top: 15px;
   display: inline-block;
-  padding: 20px;
   line-height: 1;
   border-radius: 4px;
 
   @media (max-width: 800px) {
-    font-size: 18px;
-    padding: 10px;
+    font-size: 20pt;
+    padding: 6px;
   }
 `;
 

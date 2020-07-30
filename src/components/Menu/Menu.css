@@ -9,7 +9,7 @@
 
 .Menu {
     width: 100%;
-    height: 94px;
+    height: 64px;
     z-index: 100;
 
     display: flex;
@@ -28,7 +28,7 @@
 }
 
 body {
-    --bodyPaddingTop: 94px;
+    --bodyPaddingTop: 64px;
     padding-top: var(--bodyPaddingTop);
 }
 

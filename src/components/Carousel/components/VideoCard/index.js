@@ -18,9 +18,11 @@ function VideoCard({ videoTitle, videoURL }) {
         url={image}
         href={videoURL}
         target="_blank"
-        title={videoTitle}
-      />
-      {/* <h6>{videoTitle}</h6> */}
+      >
+        <VideoCardContainer.Background>
+          <VideoCardContainer.Title>{videoTitle} </VideoCardContainer.Title>
+        </VideoCardContainer.Background>
+      </VideoCardContainer>
     </>
   );
 }
