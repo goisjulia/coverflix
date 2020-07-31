@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
+import { PropTypes } from 'prop-types';
 
 const InputContainer = styled.div`
   display: flex;
@@ -29,8 +30,8 @@ const InputContainer = styled.div`
     transition: all 0.2s ease;
     z-index: 500;
 
-    ${props => props.focused &&
-    `
+    ${(props) => props.focused
+    && `
       font-size: 13px;
       transform: translateY(-23px) translateX(-5px);
       z-index: 501;
@@ -41,34 +42,51 @@ const InputContainer = styled.div`
 
   `;
 
-function FormField({ label, value, type, name, onChange }) {
-
+function FormField({
+  label, value, type, name, onChange,
+}) {
   const [focused] = React.useState(false);
-  const isFocused = focused || String(value).length || type === "date";
+  const isFocused = focused || String(value).length || type === 'date';
+  const fieldId = `id_${name}`;
 
   return (
     <InputContainer className="input-container" focused={isFocused}>
-      {type === "textarea" ?
+      {type === 'textarea' ? (
         <textarea
           value={value}
           name={name}
           onChange={onChange}
           rows="2"
         />
-        :
-        <input
-          type={type}
-          value={value}
-          name={name}
-          onChange={onChange}
-          required
-        />
-      }
-      <label className="label">
+      )
+        : (
+          <input
+            type={type}
+            value={value}
+            name={name}
+            onChange={onChange}
+            required
+          />
+        )}
+      <label htmlFor={fieldId} className="label">
         {label}
       </label>
     </InputContainer>
-  )
+  );
 }
+
+FormField.defaultProps = {
+  type: 'text',
+  value: '',
+  onChange: () => { },
+};
+
+FormField.propTypes = {
+  label: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+};
 
 export default FormField;

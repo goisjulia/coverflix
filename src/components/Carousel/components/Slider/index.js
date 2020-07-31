@@ -1,8 +1,9 @@
 import React from 'react';
 import SlickSlider from 'react-slick';
 import styled from 'styled-components';
-import Icon from '@mdi/react'
+import Icon from '@mdi/react';
 import { mdiChevronRight, mdiChevronLeft } from '@mdi/js';
+import { PropTypes } from 'prop-types';
 
 const Container = styled.ul`
   padding: 0;
@@ -50,7 +51,8 @@ function NextArrow(props) {
   const { className, onClick } = props;
   return (
     <Arrow>
-      <Icon path={mdiChevronRight}
+      <Icon
+        path={mdiChevronRight}
         title="Próximo"
         // size={2.5}
         color="white"
@@ -61,12 +63,18 @@ function NextArrow(props) {
   );
 }
 
+NextArrow.propTypes = {
+  className: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
 function PrevArrow(props) {
   const { className, onClick } = props;
   return (
     <Arrow>
       <div>
-        <Icon path={mdiChevronLeft}
+        <Icon
+          path={mdiChevronLeft}
           title="Anterior"
           // size={2.5}
           color="white"
@@ -77,6 +85,11 @@ function PrevArrow(props) {
     </Arrow>
   );
 }
+
+PrevArrow.propTypes = {
+  className: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export const SliderItem = styled.li`
   margin-right: 16px;
@@ -104,12 +117,16 @@ const Slider = ({ children }) => (
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 4000,
-      pauseOnHover: true
+      pauseOnHover: true,
     }}
     >
       {children}
     </SlickSlider>
   </Container>
 );
+
+Slider.propTypes = {
+  children: PropTypes.string.isRequired,
+};
 
 export default Slider;

@@ -1,7 +1,8 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField/index';
-import styled from 'styled-components';
 
 const FormContainer = styled.div`
   width: 50%;
@@ -37,12 +38,11 @@ const ButtonContainer = styled.div`
 `;
 
 function Categoria() {
-
   const valoresIniciais = {
     nome: '',
     descricao: '',
-    cor: ''
-  }
+    cor: '',
+  };
 
   const [categorias, setCategorias] = useState([]);
   const [dadosCategoria, setCategoria] = useState(valoresIniciais);
@@ -50,14 +50,14 @@ function Categoria() {
   function setDadosCategoria(chave, valor) {
     setCategoria({
       ...dadosCategoria,
-      [chave]: valor
-    })
+      [chave]: valor,
+    });
   }
 
   function alterarCategoria(dadoNovo) {
     setDadosCategoria(
       dadoNovo.target.getAttribute('name'),
-      dadoNovo.target.value
+      dadoNovo.target.value,
     );
   }
 
@@ -72,10 +72,11 @@ function Categoria() {
             submit.preventDefault();
             setCategorias([
               ...categorias,
-              dadosCategoria
+              dadosCategoria,
             ]);
             setCategoria(valoresIniciais);
-          }}>
+          }}
+          >
 
             <FormField
               label="Nome da categoria"
@@ -94,19 +95,17 @@ function Categoria() {
             />
 
             <ul>
-              {categorias.map((categoria, index) => {
-                return (
-                  <li key={`${categoria}${index}`}>
-                    {categoria.nome}
-                  </li>
-                )
-              })}
+              {categorias.map((categoria, index) => (
+                <li key={`${categoria}${index}`}>
+                  {categoria.nome}
+                </li>
+              ))}
             </ul>
 
             <ButtonContainer>
               <Button>
                 Cadastrar
-            </Button>
+              </Button>
             </ButtonContainer>
 
           </form>
