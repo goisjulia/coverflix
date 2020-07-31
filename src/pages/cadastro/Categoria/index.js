@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField/index';
@@ -61,6 +61,17 @@ function Categoria() {
     );
   }
 
+  useEffect(() => {
+    const URL = 'http://localhost:8080/categorias';
+
+    fetch(URL).then(async (response) => {
+      const retorno = await response.json();
+      setCategorias([
+        ...retorno,
+      ]);
+    });
+  }, []);
+
   return (
     <>
       <PageDefault>
@@ -93,6 +104,12 @@ function Categoria() {
               name="descricao"
               onChange={alterarCategoria}
             />
+
+            {categorias.length === 0 && (
+              <div>
+                Loading...
+              </div>
+            )}
 
             <ul>
               {categorias.map((categoria, index) => (

@@ -3,7 +3,7 @@ import SlickSlider from 'react-slick';
 import styled from 'styled-components';
 import Icon from '@mdi/react';
 import { mdiChevronRight, mdiChevronLeft } from '@mdi/js';
-import { PropTypes } from 'prop-types';
+// import { PropTypes } from 'prop-types';
 
 const Container = styled.ul`
   padding: 0;
@@ -63,10 +63,10 @@ function NextArrow(props) {
   );
 }
 
-NextArrow.propTypes = {
-  className: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-};
+// NextArrow.propTypes = {
+//   className: PropTypes.string.isRequired,
+//   onClick: PropTypes.func.isRequired,
+// };
 
 function PrevArrow(props) {
   const { className, onClick } = props;
@@ -86,10 +86,10 @@ function PrevArrow(props) {
   );
 }
 
-PrevArrow.propTypes = {
-  className: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-};
+// PrevArrow.propTypes = {
+//   className: PropTypes.string.isRequired,
+//   onClick: PropTypes.func.isRequired,
+// };
 
 export const SliderItem = styled.li`
   margin-right: 16px;
@@ -125,8 +125,8 @@ const Slider = ({ children }) => (
   </Container>
 );
 
-Slider.propTypes = {
-  children: PropTypes.string.isRequired,
-};
+// Slider.propTypes = {
+//   children: PropTypes.string.isRequired,
+// };
 
 export default Slider;
