@@ -1,8 +1,11 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { ToastContainer, toast } from 'react-toastify';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField/index';
+import 'react-toastify/dist/ReactToastify.css';
+import loading from '../../../assets/gif/Frederic.gif';
 
 const FormContainer = styled.div`
   width: 50%;
@@ -10,6 +13,10 @@ const FormContainer = styled.div`
   @media(max-width: 800px){
     width: 100%;
   }
+`;
+
+const Loading = styled.div`
+  text-align: center;
 `;
 
 const Button = styled.button`
@@ -33,8 +40,16 @@ const Button = styled.button`
   }
 `;
 
-const ButtonContainer = styled.div`
+const SpanInfo = styled.span`
+  display: block;
+  font-size: 10pt;
+  color: var(--blackLighter);
+`;
+
+const RightContainer = styled.div`
   text-align: right;
+  margin-bottom: 20px;
+
 `;
 
 function Categoria() {
@@ -61,24 +76,20 @@ function Categoria() {
     );
   }
 
-  useEffect(() => {
-    const URL = window.location.hostname.includes('localhost')
-      ? 'http://localhost:8080/categorias'
-      : 'https://thecoverflix.herokuapp.com/categorias';
+  const URL = window.location.hostname.includes('localhost')
+    ? 'http://localhost:8080/categorias'
+    : 'https://thecoverflix.herokuapp.com/categorias';
 
+  useEffect(() => {
     fetch(URL).then(async (response) => {
       const retorno = await response.json();
       setCategorias([
         ...retorno,
       ]);
     });
-  }, []);
+  }, [URL]);
 
   function addCategoria(categoria) {
-    const URL = window.location.hostname.includes('localhost')
-      ? 'http://localhost:8080/categorias'
-      : 'https://thecoverflix.herokuapp.com/categorias';
-
     const novaCategoria = {
       id: dadosCategoria.length + 1,
       nome: categoria.nome,
@@ -100,6 +111,26 @@ function Categoria() {
           ...categorias,
           categoria,
         ]);
+
+        toast.success('🤘 Categoria cadastrada com sucesso!', {
+          position: 'bottom-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else {
+        toast.error('💀 Erro ao cadastrar categoria!', {
+          position: 'bottom-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       }
     });
   }
@@ -113,17 +144,30 @@ function Categoria() {
 
           <form onSubmit={function handleSubmit(submit) {
             submit.preventDefault();
-            addCategoria(dadosCategoria);
-            setCategoria(valoresIniciais);
+            if (dadosCategoria.nome !== '') {
+              addCategoria(dadosCategoria);
+              setCategoria(valoresIniciais);
+            } else {
+              toast.warning('👻 Campo(s) obrigatório(s) em branco!', {
+                position: 'bottom-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              });
+            }
           }}
           >
 
             <FormField
-              label="Nome da categoria"
+              label="Nome da categoria*"
               type="text"
               value={dadosCategoria.nome}
               name="nome"
               onChange={alterarCategoria}
+              required
             />
 
             <FormField
@@ -134,12 +178,17 @@ function Categoria() {
               onChange={alterarCategoria}
             />
 
+            <SpanInfo> * Campo obrigatório</SpanInfo>
+            <RightContainer>
+              <Button>
+                Cadastrar
+              </Button>
+            </RightContainer>
             {categorias.length === 0 && (
-            <div>
-              Loading...
-            </div>
+              <Loading>
+                <img src={loading} alt="Carregando..." />
+              </Loading>
             )}
-
             <ul>
               {categorias.map((categoria, index) => (
                 <li key={`${categoria}${index}`}>
@@ -147,13 +196,7 @@ function Categoria() {
                 </li>
               ))}
             </ul>
-
-            <ButtonContainer>
-              <Button>
-                Cadastrar
-              </Button>
-            </ButtonContainer>
-
+            <ToastContainer />
           </form>
         </FormContainer>
       </PageDefault>

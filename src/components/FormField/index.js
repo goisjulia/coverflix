@@ -18,7 +18,7 @@ const InputContainer = styled.div`
     padding: 12px 3px 12px 15px;
     font-size: 16px;
     transition: all 0.2s ease;
-    z-index: 500;
+    z-index: 1;
     resize: vertical;
   }
 
@@ -28,13 +28,13 @@ const InputContainer = styled.div`
     top: 15px;
     left: 15px;
     transition: all 0.2s ease;
-    z-index: 500;
+    z-index: 1;
 
     ${(props) => props.focused
     && `
       font-size: 13px;
       transform: translateY(-23px) translateX(-5px);
-      z-index: 501;
+      z-index: 2;
       background: white;
       padding: 0 8px;
     `}
@@ -65,7 +65,6 @@ function FormField({
             value={value}
             name={name}
             onChange={onChange}
-            required
           />
         )}
       <label htmlFor={fieldId} className="label">
