@@ -94,21 +94,17 @@ const Slider = ({ children }) => (
     <SlickSlider {...{
       dots: false,
       infinite: true,
-      speed: 300,
+      speed: 500,
       centerMode: false,
       variableWidth: true,
       adaptiveHeight: true,
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
-      responsive: [
-        {
-          breakpoint: 800,
-          settings: {
-            arrows: false,
-            swipeToSlide: true
-          }
-        }
-      ]
+      swipeToSlide: true,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      pauseOnHover: true
     }}
     >
       {children}
