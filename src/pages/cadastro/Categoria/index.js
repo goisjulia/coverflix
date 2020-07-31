@@ -9,7 +9,8 @@ import loading from '../../../assets/gif/loading.gif';
 
 const FormContainer = styled.div`
   width: 50%;
-
+  margin-left: auto;
+  margin-right:auto;
   @media(max-width: 800px){
     width: 100%;
   }
@@ -49,7 +50,6 @@ const SpanInfo = styled.span`
 const RightContainer = styled.div`
   text-align: right;
   margin-bottom: 20px;
-
 `;
 
 function Categoria() {
@@ -138,9 +138,9 @@ function Categoria() {
   return (
     <>
       <PageDefault>
-        <h1> Cadastro de Categoria</h1>
 
         <FormContainer>
+          <h1> Cadastro de Categoria</h1>
 
           <form onSubmit={function handleSubmit(submit) {
             submit.preventDefault();
