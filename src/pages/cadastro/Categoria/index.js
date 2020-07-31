@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField/index';
 import 'react-toastify/dist/ReactToastify.css';
-import loading from '../../../assets/gif/Frederic.gif';
+import loading from '../../../assets/gif/loading.gif';
 
 const FormContainer = styled.div`
   width: 50%;
