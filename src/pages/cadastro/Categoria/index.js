@@ -62,7 +62,7 @@ function Categoria() {
   }
 
   useEffect(() => {
-    const URL = 'https://thecoverflix.herokuapp.com/categorias';
+    const URL = 'http://localhost:8080/categorias';
 
     fetch(URL).then(async (response) => {
       const retorno = await response.json();
