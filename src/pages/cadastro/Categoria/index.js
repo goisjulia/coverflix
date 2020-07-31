@@ -74,6 +74,36 @@ function Categoria() {
     });
   }, []);
 
+  function addCategoria(categoria) {
+    const URL = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://thecoverflix.herokuapp.com/categorias';
+
+    const novaCategoria = {
+      id: dadosCategoria.length + 1,
+      nome: categoria.nome,
+      descricao: categoria.descricao,
+    };
+
+    fetch(URL,
+      {
+        method: 'post',
+        headers: {
+          // eslint-disable-next-line quote-props
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(novaCategoria),
+      }).then(async (response) => {
+      if (response.status === 201) {
+        setCategorias([
+          ...categorias,
+          categoria,
+        ]);
+      }
+    });
+  }
+
   return (
     <>
       <PageDefault>
@@ -83,10 +113,7 @@ function Categoria() {
 
           <form onSubmit={function handleSubmit(submit) {
             submit.preventDefault();
-            setCategorias([
-              ...categorias,
-              dadosCategoria,
-            ]);
+            addCategoria(dadosCategoria);
             setCategoria(valoresIniciais);
           }}
           >
@@ -108,9 +135,9 @@ function Categoria() {
             />
 
             {categorias.length === 0 && (
-              <div>
-                Loading...
-              </div>
+            <div>
+              Loading...
+            </div>
             )}
 
             <ul>
