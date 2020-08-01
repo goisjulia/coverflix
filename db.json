@@ -12,8 +12,303 @@
     },
     {
       "id": 3,
+      "titulo": "Sertanejo",
+      "descricao": "#Brasileirize-se"
+    },
+    {
+      "id": 4,
       "titulo": "MPB",
       "descricao": "#Brasileirize-se"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "idCategoria": 1,
+      "titulo": "Queen - Bohemian Rhapsody cover by @Halocene, @First To Eleven, @Violet Orlandi, @Lauren Babic",
+      "url": "https://youtu.be/9fTDV5cedJQ"
+    },
+    {
+      "id": 2,
+      "idCategoria": 1,
+      "titulo": "AC/DC - Back in Black (cover by Sershen&Zaritskaya feat. Kim and Shturmak)",
+      "url": "https://youtu.be/f2p0xrY4CMs"
+    },
+    {
+      "id": 3,
+      "idCategoria": 1,
+      "titulo": "KISS - Detroit Rock City (cover by Sershen&Zaritskaya feat. Kim and Shturmak)",
+      "url": "https://youtu.be/6pt3590_ptc"
+    },
+    {
+      "id": 4,
+      "idCategoria": 1,
+      "titulo": "IRIS - Goo Goo Dolls (Rock cover by Jonathan Young)",
+      "url": "https://youtu.be/-poPQhpb4fU"
+    },
+    {
+      "id": 5,
+      "idCategoria": 1,
+      "titulo": "Scorpions - Still Loving You (Violet Orlandi cover)",
+      "url": "https://youtu.be/HBMOKoH4CmA"
+    },
+    {
+      "id": 6,
+      "idCategoria": 1,
+      "titulo": "Guns'n'Roses - Welcome To The Jungle cover by Sershen&Zaritskaya (feat. Kim, Ross and Shturmak)",
+      "url": "https://youtu.be/jTks3yqR9mI"
+    },
+    {
+      "id": 7,
+      "idCategoria": 1,
+      "titulo": "System of a Down - Toxicity Cover by @Halocene , @Lauren Babic, @Violet Orlandi",
+      "url": "https://youtu.be/Y8liMsWDC80"
+    },
+    {
+      "id": 8,
+      "idCategoria": 1,
+      "titulo": "Bad Wolves - Zombie (Official Video)",
+      "url": "https://youtu.be/9XaS93WMRQQ"
+    },
+    {
+      "id": 9,
+      "idCategoria": 1,
+      "titulo": "Starman - MonaLisa Twins (David Bowie Cover)",
+      "url": "https://youtu.be/KBgirdmSPsM"
+    },
+    {
+      "id": 10,
+      "idCategoria": 1,
+      "titulo": "'Dream On' (Cover)- Blacktop Mojo",
+      "url": "https://youtu.be/qF9dCWmq3pM"
+    },
+    {
+      "id": 11,
+      "idCategoria": 1,
+      "titulo": "Pearl Jam - Black Acoustic Cover",
+      "url": "https://youtu.be/3jDCy9OtKWU"
+    },
+    {
+      "id": 12,
+      "idCategoria": 1,
+      "titulo": "NUMB - LINKIN PARK (cover)",
+      "url": "https://youtu.be/6Vnwb92VF64"
+    },
+    {
+      "id": 13,
+      "idCategoria": 2,
+      "titulo": "Lay Me Down - Sam Smith - Diamond White Cover",
+      "url": "https://youtu.be/mwBGGh2fhfU"
+    },
+    {
+      "id": 14,
+      "idCategoria": 2,
+      "titulo": "Just The Way You Are - Bruno Mars (Boyce Avenue acoustic/piano cover) on Spotify & Apple",
+      "url": "https://youtu.be/GhFSgnvKqm4"
+    },
+    {
+      "id": 15,
+      "idCategoria": 2,
+      "titulo": "Evolution of Beyoncé - Pentatonix",
+      "url": "https://youtu.be/QkR4asPMip4"
+    },
+    {
+      "id": 16,
+      "idCategoria": 2,
+      "titulo": "Photograph - Ed Sheeran (Boyce Avenue feat. Bea Miller acoustic cover) on Spotify & Apple",
+      "url": "https://youtu.be/tIA_vrBDC1g"
+    },
+    {
+      "id": 17,
+      "idCategoria": 2,
+      "titulo": "[Official Video] Rather Be - Pentatonix (Clean Bandit Cover)",
+      "url": "https://youtu.be/OPWPa-HMpj8"
+    },
+    {
+      "id": 18,
+      "idCategoria": 2,
+      "titulo": "Halo - Vintage Motown Style Beyonce Cover ft. LaVance Colley",
+      "url": "https://youtu.be/6fAK0MHs4xE"
+    },
+    {
+      "id": 19,
+      "idCategoria": 2,
+      "titulo": "Willie Spence cover “Rihanna” Diamonds(Full Version)",
+      "url": "https://youtu.be/cYzJVZv-EWc"
+    },
+    {
+      "id": 20,
+      "idCategoria": 2,
+      "titulo": "Adele - 'Hello' (Taps Cover)",
+      "url": "https://youtu.be/I3dOhbkcvWQ"
+    },
+    {
+      "id": 21,
+      "idCategoria": 2,
+      "titulo": "Mirrors - Justin Timberlake (Boyce Avenue feat. Fifth Harmony cover) on Spotify & Apple",
+      "url": "https://youtu.be/fvEZUbzqqyM"
+    },
+    {
+      "id": 22,
+      "idCategoria": 2,
+      "titulo": "*NSYNC - Bye Bye Bye | Leroy Sanchez, KHS Cover",
+      "url": "https://youtu.be/yIKNFFewNUo"
+    },
+    {
+      "id": 23,
+      "idCategoria": 2,
+      "titulo": "The Neighbourhood - Say My Name/Cry Me A River [LEGENDADO]",
+      "url": "https://youtu.be/YZScE0ohAy0"
+    },
+    {
+      "id": 24,
+      "idCategoria": 2,
+      "titulo": "Michael Jackson - Billie Jean ( cover by J.Fla )",
+      "url": "https://youtu.be/J1AdPY73qxo"
+    },
+    {
+      "id": 25,
+      "idCategoria": 3,
+      "titulo": "Ícaro e Gilmar -- Pot-Pourri: Deixaria Tudo/É Tarde Demais/Preciso dar um tempo #Cover",
+      "url": "https://youtu.be/FsxL3nTkK_w"
+    },
+    {
+      "id": 26,
+      "idCategoria": 3,
+      "titulo": "Marília Mendonça - SUPERA (cover Isa Guerra)",
+      "url": "https://youtu.be/PgGEPPJNFEE"
+    },
+    {
+      "id": 27,
+      "idCategoria": 3,
+      "titulo": "Vou Ter Que Superar - Matheus e Kauan part. Marília Mendonça (Thayná Bitencourt - cover)",
+      "url": "https://youtu.be/0yJoWGX5D8I"
+    },
+    {
+      "id": 28,
+      "idCategoria": 3,
+      "titulo": "Sofia Oliveira part. Matheus e Kauan - Decide Aí (Cover)",
+      "url": "https://youtu.be/3WtnW4uyFIU"
+    },
+    {
+      "id": 29,
+      "idCategoria": 3,
+      "titulo": "Yasmin Santos - Evidências",
+      "url": "https://youtu.be/m3_aWweuTWQ"
+    },
+    {
+      "id": 30,
+      "idCategoria": 3,
+      "titulo": "Marília Mendonça - Graveto (cover Marcelo Coelho)",
+      "url": "https://youtu.be/oDXlgvo3iJQ"
+    },
+    {
+      "id": 31,
+      "idCategoria": 3,
+      "titulo": "Lauana Prado - Por Um Minuto (Bruno e Marrone) #Versões",
+      "url": "https://youtu.be/MHfh0-8OjT8"
+    },
+    {
+      "id": 32,
+      "idCategoria": 3,
+      "titulo": "Morena Bonita - Gino e Geno - (Cover Dalmi Junior)",
+      "url": "https://youtu.be/qUdsW0tZKHw"
+    },
+    {
+      "id": 33,
+      "idCategoria": 3,
+      "titulo": "Especial Modão | Medley - Trio Parada Dura",
+      "url": "https://youtu.be/CfTHTHlnCWY"
+    },
+    {
+      "id": 34,
+      "idCategoria": 3,
+      "titulo": "Decida/Seu amor ainda é tudo - (Cover Marcelo Coelho)",
+      "url": "https://youtu.be/8ook5jqtY5s"
+    },
+    {
+      "id": 35,
+      "idCategoria": 3,
+      "titulo": "Marlon e Daniel - Ausência - Chrystian e Ralf (cover)",
+      "url": "https://youtu.be/aAMqDbWh02U"
+    },
+    {
+      "id": 36,
+      "idCategoria": 3,
+      "titulo": "Medley - Teodoro e Sampaio | Andrey e Maurício (Cover)",
+      "url": "https://youtu.be/cUD6y6-d0sM"
+    },
+    {
+      "id": 37,
+      "idCategoria": 4,
+      "titulo": "Mariana Nolasco 'João de Barro' (Cover)",
+      "url": "https://youtu.be/NijqihvlBhw"
+    },
+    {
+      "id": 38,
+      "idCategoria": 4,
+      "titulo": "Bem Que Se Quis - Marisa Monte (Stefano Cover)",
+      "url": "https://youtu.be/VAk9X2DeX0I"
+    },
+    {
+      "id": 39,
+      "idCategoria": 4,
+      "titulo": "Ana Gabriela - Quem de Nós Dois (cover) Ana Carolina",
+      "url": "https://youtu.be/Y2iaVSa5nEc"
+    },
+    {
+      "id": 40,
+      "idCategoria": 4,
+      "titulo": "'anunciação' Alceu Valença | cover Elana Dara",
+      "url": "https://youtu.be/8KGVlsjmPZk"
+    },
+    {
+      "id": 41,
+      "idCategoria": 4,
+      "titulo": "NANDO REIS - (Gabriel Nandes cover) Por onde andei + Muito estranho by Dalto",
+      "url": "https://youtu.be/1yy39LYqOxE"
+    },
+    {
+      "id": 42,
+      "idCategoria": 4,
+      "titulo": "Sina - Djavan (Amanda Coronha cover acústico) Nossa Toca na Rua",
+      "url": "https://youtu.be/InYkhKcIkwc"
+    },
+    {
+      "id": 43,
+      "idCategoria": 4,
+      "titulo": "Coisa Linda - Tiago Iorc (Bárbara Dias cover acústico) Nossa Toca na Rua",
+      "url": "https://youtu.be/d7cMs-ATWiY"
+    },
+    {
+      "id": 44,
+      "idCategoria": 4,
+      "titulo": "Renato Enoch - Como Nossos Pais (Tributo a Belchior e Elis Regina)",
+      "url": "https://youtu.be/SJqCWU4WDBY"
+    },
+    {
+      "id": 45,
+      "idCategoria": 4,
+      "titulo": "Gilberto Gil - Esotérico (Arianne Ruas Acoustic Cover)",
+      "url": "https://youtu.be/paUtDCfzg6g"
+    },
+    {
+      "id": 46,
+      "idCategoria": 4,
+      "titulo": "Lucas Brito - Homem Aranha (Jorge Vercillo)",
+      "url": "https://youtu.be/Kwa-cdNafKA"
+    },
+    {
+      "id": 47,
+      "idCategoria": 4,
+      "titulo": "Cálice - Chico Buarque (cover de Gabi Porto e Guilherme Borges)",
+      "url": "https://youtu.be/azI29MSO7n4"
+    },
+    {
+      "id": 48,
+      "idCategoria": 4,
+      "titulo": "Liniker - Azul da Cor do Mar (Tim Maia Cover)",
+      "url": "https://youtu.be/e3vG1HrpVyc"
     }
   ]
 }
