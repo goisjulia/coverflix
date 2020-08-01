@@ -3,49 +3,8 @@ import SlickSlider from 'react-slick';
 import styled from 'styled-components';
 import Icon from '@mdi/react';
 import { mdiChevronRight, mdiChevronLeft } from '@mdi/js';
-// import { PropTypes } from 'prop-types';
-
-const Container = styled.ul`
-  padding: 0;
-  margin: 0;
-  .slick-prev,
-  .slick-next {
-    z-index: 50;
-    top: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.2);
-    transform: initial;
-    &:before {
-      font-size: 30px;
-    }
-  }
-
-  .slick-prev {
-    left: 0;
-  }
-
-  .slick-next {
-    right: 0;
-  }
-
-  &:hover div{
-    opacity: 1;
-  }
-`;
-
-const Arrow = styled.div`
-  opacity: 0;
-
-  svg {
-    height: calc(100% - 32px);
-    width: 40pt;
-    margin-bottom: 16px;
-    margin-top: 16px;
-  }
-/*
-  .shadow:hover {
-  } */
-`;
+import { PropTypes } from 'prop-types';
+import { Container, Arrow } from './styles';
 
 function NextArrow(props) {
   const { className, onClick } = props;
@@ -63,10 +22,10 @@ function NextArrow(props) {
   );
 }
 
-// NextArrow.propTypes = {
-//   className: PropTypes.string.isRequired,
-//   onClick: PropTypes.func.isRequired,
-// };
+NextArrow.propTypes = {
+  className: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 function PrevArrow(props) {
   const { className, onClick } = props;
@@ -86,10 +45,10 @@ function PrevArrow(props) {
   );
 }
 
-// PrevArrow.propTypes = {
-//   className: PropTypes.string.isRequired,
-//   onClick: PropTypes.func.isRequired,
-// };
+PrevArrow.propTypes = {
+  className: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export const SliderItem = styled.li`
   margin-right: 16px;
@@ -125,8 +84,8 @@ const Slider = ({ children }) => (
   </Container>
 );
 
-// Slider.propTypes = {
-//   children: PropTypes.string.isRequired,
-// };
+Slider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Slider;

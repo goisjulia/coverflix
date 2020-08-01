@@ -1,62 +1,18 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { ToastContainer, toast } from 'react-toastify';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField/index';
 import 'react-toastify/dist/ReactToastify.css';
 import loading from '../../../assets/gif/loading.gif';
-
-const FormContainer = styled.div`
-  width: 50%;
-  margin-left: auto;
-  margin-right:auto;
-  @media(max-width: 800px){
-    width: 100%;
-  }
-`;
-
-const Loading = styled.div`
-  text-align: center;
-`;
-
-const Button = styled.button`
-  color: var(--black);
-  border: 1px solid var(--black);
-  box-sizing: border-box;
-  cursor: pointer;
-  padding: 5px 10px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  outline: none;
-  border-radius: 5px;
-  text-decoration: none;
-  display: inline-block;
-  transition: opacity .3s;
-
-  &:hover,
-  &:focus {
-    opacity: .5;
-  }
-`;
-
-const SpanInfo = styled.span`
-  display: block;
-  font-size: 10pt;
-  color: var(--blackLighter);
-`;
-
-const RightContainer = styled.div`
-  text-align: right;
-  margin-bottom: 20px;
-`;
+import {
+  FormContainer, SpanInfo, Loading, RightContainer, Button,
+} from './styles';
 
 function Categoria() {
   const valoresIniciais = {
-    nome: '',
+    titulo: '',
     descricao: '',
-    cor: '',
   };
 
   const [categorias, setCategorias] = useState([]);
@@ -92,7 +48,7 @@ function Categoria() {
   function addCategoria(categoria) {
     const novaCategoria = {
       id: dadosCategoria.length + 1,
-      nome: categoria.nome,
+      titulo: categoria.titulo,
       descricao: categoria.descricao,
     };
 
@@ -144,7 +100,7 @@ function Categoria() {
 
           <form onSubmit={function handleSubmit(submit) {
             submit.preventDefault();
-            if (dadosCategoria.nome !== '') {
+            if (dadosCategoria.titulo !== '') {
               addCategoria(dadosCategoria);
               setCategoria(valoresIniciais);
             } else {
@@ -164,8 +120,8 @@ function Categoria() {
             <FormField
               label="Nome da categoria*"
               type="text"
-              value={dadosCategoria.nome}
-              name="nome"
+              value={dadosCategoria.titulo}
+              name="titulo"
               onChange={alterarCategoria}
               required
             />
@@ -192,7 +148,7 @@ function Categoria() {
             <ul>
               {categorias.map((categoria, index) => (
                 <li key={`${categoria}${index}`}>
-                  {categoria.nome}
+                  {categoria.titulo}
                 </li>
               ))}
             </ul>

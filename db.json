@@ -2,17 +2,17 @@
   "categorias": [
     {
       "id": 1,
-      "nome": "Rock",
+      "titulo": "Rock",
       "descricao": "#LetsRock"
     },
     {
       "id": 2,
-      "nome": "Pop",
+      "titulo": "Pop",
       "descricao": "#PopIt"
     },
     {
       "id": 3,
-      "nome": "MPB",
+      "titulo": "MPB",
       "descricao": "#Brasileirize-se"
     }
   ]

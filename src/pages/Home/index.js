@@ -4,17 +4,18 @@ import dadosIniciais from '../../data/dados_iniciais.json';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import Footer from '../../components/Footer';
-import { HomeBase } from './styles';
+import HomeBase from './styles';
 
 function Home() {
-  let carousels = [];
+  const carousels = [];
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const [index] of dadosIniciais.categorias.entries()) {
     carousels.push(<Carousel
       key={index}
       ignoreFirstVideo
       category={dadosIniciais.categorias[index]}
-    />)
+    />);
   }
 
   return (

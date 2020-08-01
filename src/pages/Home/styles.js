@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const HomeBase = styled.div`
+export default styled.div`
   background: #141414;
 `;
