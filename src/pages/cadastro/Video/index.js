@@ -38,7 +38,7 @@ function Video() {
           videosRepository.create({
             titulo: values.titulo,
             url: values.url,
-            categoriaId,
+            categoriaId: categoriaId.id,
           })
             .then(() => {
               console.log('Video adicionado!');

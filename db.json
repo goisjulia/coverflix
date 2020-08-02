@@ -326,16 +326,6 @@
       "url": "https://youtu.be/-poPQhpb4fU",
       "categoriaId": 1,
       "id": 50
-    },
-    {
-      "titulo": "PISTOLEI | Comedy Central A Culpa é do Cabral",
-      "url": "https://www.youtube.com/watch?v=4h0AsXlPa3M",
-      "categoriaId": {
-        "id": 1,
-        "titulo": "Rock",
-        "descricao": "#LetsRock"
-      },
-      "id": 51
     }
   ]
 }
