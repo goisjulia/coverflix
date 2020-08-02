@@ -5,10 +5,11 @@ import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField/index';
 import 'react-toastify/dist/ReactToastify.css';
 import {
-  FormContainer, SpanInfo, RightContainer, Button,
-} from './styles';
+  Button, SpanInfo, RightContainer, FormContainer,
+} from '../CadastroDefault/styles';
 import useForm from '../../../hooks/useForm';
 import Loading from '../../../components/Loading/index';
+import categoriasRepository from '../../../repositories/categorias';
 
 function Categoria() {
   const valoresIniciais = {
@@ -17,67 +18,15 @@ function Categoria() {
   };
 
   const { handleChange, values, clearForm } = useForm(valoresIniciais);
-
   const [categorias, setCategorias] = useState([]);
 
-  const URL = window.location.hostname.includes('localhost')
-    ? 'http://localhost:8080/categorias'
-    : 'https://thecoverflix.herokuapp.com/categorias';
-
   useEffect(() => {
-    fetch(URL).then(async (response) => {
-      const retorno = await response.json();
-      setCategorias([
-        ...retorno,
-      ]);
-    });
-  }, [URL]);
-
-  function addCategoria(categoria) {
-    const novaCategoria = {
-      id: values.length + 1,
-      titulo: categoria.titulo,
-      descricao: categoria.descricao,
-    };
-
-    fetch(URL,
-      {
-        method: 'post',
-        headers: {
-          // eslint-disable-next-line quote-props
-          'Accept': 'application/json, text/plain, */*',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(novaCategoria),
-      }).then(async (response) => {
-      if (response.status === 201) {
-        setCategorias([
-          ...categorias,
-          categoria,
-        ]);
-
-        toast.success('🤘 Categoria cadastrada com sucesso!', {
-          position: 'bottom-center',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      } else {
-        toast.error('💀 Erro ao cadastrar categoria!', {
-          position: 'bottom-center',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      }
-    });
-  }
+    categoriasRepository
+      .getAll()
+      .then((response) => {
+        setCategorias(response);
+      });
+  }, []);
 
   return (
     <>
@@ -89,7 +38,37 @@ function Categoria() {
           <form onSubmit={function handleSubmit(submit) {
             submit.preventDefault();
             if (values.titulo !== '') {
-              addCategoria(values);
+              categoriasRepository.create({
+                titulo: values.titulo,
+                descricao: values.descricao,
+              }).then(() => {
+                // if (response.status === 201) {
+                toast.success('🤘 Categoria cadastrada com sucesso!', {
+                  position: 'bottom-center',
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                });
+
+                setCategorias([
+                  ...categorias,
+                  values,
+                ]);
+                // } else {
+                //   toast.error('💀 Erro ao cadastrar categoria!', {
+                //     position: 'bottom-center',
+                //     autoClose: 5000,
+                //     hideProgressBar: false,
+                //     closeOnClick: true,
+                //     pauseOnHover: true,
+                //     draggable: true,
+                //     progress: undefined,
+                //   });
+                // }
+              });
 
               clearForm(valoresIniciais);
             } else {
@@ -130,7 +109,7 @@ function Categoria() {
               </Button>
             </RightContainer>
             {categorias.length === 0 && (
-              <Loading />
+            <Loading />
             )}
             <ul>
               {categorias.map((categoria, index) => (

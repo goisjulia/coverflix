@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
 import videosRepository from '../../../repositories/videos';
 import categoriasRepository from '../../../repositories/categorias';
+import 'react-toastify/dist/ReactToastify.css';
+import {
+  Button, SpanInfo, RightContainer, FormContainer,
+} from '../CadastroDefault/styles';
 
 function Video() {
-  const history = useHistory();
-  const [categorias, setCategorias] = useState([]);
-  const categoryTitles = categorias.map(({ titulo }) => titulo);
-
-  const { handleChange, values } = useForm({
+  const valoresIniciais = {
     titulo: '',
     url: '',
     categoria: '',
-  });
+  };
+
+  const { handleChange, values, clearForm } = useForm(valoresIniciais);
+  const [categorias, setCategorias] = useState([]);
+  const categoryTitles = categorias.map(({ titulo }) => titulo);
 
   useEffect(() => {
     categoriasRepository
@@ -28,54 +33,71 @@ function Video() {
   return (
     <>
       <PageDefault>
-        <h1> Cadastro de Vídeo</h1>
+        <FormContainer>
+          <h1> Cadastro de Vídeo</h1>
 
-        <form onSubmit={(event) => {
-          event.preventDefault();
+          <form onSubmit={(event) => {
+            event.preventDefault();
 
-          const categoriaId = categorias.find((categoria) => categoria.titulo === values.categoria);
+            const categoriaId = categorias
+              .find((categoria) => categoria.titulo === values.categoria);
 
-          videosRepository.create({
-            titulo: values.titulo,
-            url: values.url,
-            categoriaId: categoriaId.id,
-          })
-            .then(() => {
-              console.log('Video adicionado!');
-              history.push('/');
-            });
-        }}
-        >
-          <FormField
-            label="Título do Vídeo"
-            name="titulo"
-            value={values.titulo}
-            onChange={handleChange}
-          />
+            videosRepository.create({
+              titulo: values.titulo,
+              url: values.url,
+              categoriaId: categoriaId.id,
+            })
+              .then(() => {
+                toast.success('🤘 Vídeo cadastrado com sucesso!', {
+                  position: 'bottom-center',
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                });
 
-          <FormField
-            label="URL"
-            name="url"
-            value={values.url}
-            onChange={handleChange}
-          />
+                clearForm(valoresIniciais);
 
-          <FormField
-            label="Categoria"
-            name="categoria"
-            value={values.categoria}
-            onChange={handleChange}
-            suggestions={categoryTitles}
-          />
+                // history.push('/');
+              });
+          }}
+          >
+            <FormField
+              label="Título do Vídeo*"
+              name="titulo"
+              value={values.titulo}
+              onChange={handleChange}
+            />
 
-          <button type="submit">
-            Cadastrar
-          </button>
-        </form>
+            <FormField
+              label="URL*"
+              name="url"
+              value={values.url}
+              onChange={handleChange}
+            />
 
-        <Link to="/cadastro/categoria">
-          Cadastrar Categoria
-        </Link>
+            <FormField
+              label="Categoria*"
+              name="categoria"
+              value={values.categoria}
+              onChange={handleChange}
+              suggestions={categoryTitles}
+            />
+            <SpanInfo> * Campo obrigatório</SpanInfo>
+            <RightContainer>
+              <Button>
+                Cadastrar
+              </Button>
+            </RightContainer>
+          </form>
+
+          <Link to="/cadastro/categoria">
+            Cadastrar Categoria
+          </Link>
+          <ToastContainer />
+        </FormContainer>
       </PageDefault>
     </>
   );

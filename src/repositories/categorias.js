@@ -24,7 +24,41 @@ function getAll() {
     });
 }
 
+function create(categoria) {
+  return fetch(`${URL_CATEGORIES}`, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(categoria),
+  }).then(async (response) => {
+    if (response.ok) {
+      const retorno = await response.json();
+      return retorno;
+    }
+    throw new Error(await response.status);
+  });
+}
+
+function deleteOne(categoria) {
+  return fetch(`${URL_CATEGORIES}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(categoria),
+  }).then(async (response) => {
+    if (response.ok) {
+      const retorno = await response.json();
+      return retorno;
+    }
+    throw new Error(await response.status);
+  });
+}
+
 export default {
   getAllWithVideos,
   getAll,
+  create,
+  deleteOne,
 };
