@@ -15,7 +15,7 @@ const VideoCardContainer = styled.a`
   display: flex;
   align-items: center;
   margin-top: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
 
   &:hover,
   &:focus {

@@ -1,42 +1,62 @@
-import React from 'react';
-import Menu from '../../components/Menu';
-import dadosIniciais from '../../data/dados_iniciais.json';
-import BannerMain from '../../components/BannerMain';
-import Carousel from '../../components/Carousel';
-import Footer from '../../components/Footer';
-import HomeBase from './styles';
+import React, { useEffect, useState } from 'react';
+import categoriasRepository from '../../repositories/categorias';
+import PageDefault from '../../components/PageDefault/index';
+import Loading from '../../components/Loading/index';
+import Carousel from '../../components/Carousel/index';
+import BannerMain from '../../components/BannerMain/index';
+import CarouselContainer from './styles';
 
 function Home() {
-  const carousels = [];
+  const [dadosIniciais, setDadosIniciais] = useState([]);
 
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [index] of dadosIniciais.categorias.entries()) {
-    carousels.push(<Carousel
-      key={index}
-      ignoreFirstVideo
-      category={dadosIniciais.categorias[index]}
-    />);
-  }
+  useEffect(() => {
+    categoriasRepository.getAllWithVideos()
+      .then((categorias) => {
+        setDadosIniciais(categorias);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
   return (
-    <HomeBase>
 
-      <div className="Home">
+    <PageDefault paddingMain={0}>
 
-        <Menu />
+      <CarouselContainer>
+        {dadosIniciais.length === 0 && (<Loading />)}
 
-        <BannerMain
-          videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
-          url={dadosIniciais.categorias[0].videos[0].url}
-          videoDescription={"Quando foi lançada como single, 'Bohemian Rhapsody' se tornou um sucesso comercial, ficando no topo da UK Singles Chart por nove semanas e vendendo mais de um milhão de cópias até o fim de janeiro de 1976. Ela alcançou o topo das listas em diversos outros mercados, incluindo Canadá, Austrália, Nova Zelândia, Irlanda e Holanda."}
-        />
+        {dadosIniciais.map((categoria, index) => {
+          if (index === 0) {
+            return (
+              <div key={categoria.id}>
+                <BannerMain
+                  videoTitle={dadosIniciais[0].videos[0].titulo}
+                  url={dadosIniciais[0].videos[0].url}
+                  videoDescription={"Quando foi lançada como single, 'Bohemian Rhapsody' se tornou um sucesso comercial, ficando no topo da UK Singles Chart por nove semanas e vendendo mais de um milhão de cópias até o fim de janeiro de 1976. Ela alcançou o topo das listas em diversos outros mercados, incluindo Canadá, Austrália, Nova Zelândia, Irlanda e Holanda."}
+                />
 
-        {carousels}
-
-        <Footer />
-
-      </div>
-    </HomeBase>
+                <Carousel
+                  ignoreFirstVideo
+                  category={dadosIniciais[0]}
+                />
+              </div>
+            );
+          }
+          if (categoria.videos.length !== 0) {
+            return (
+              <Carousel
+                key={categoria.id}
+                category={categoria}
+              />
+            );
+          }
+          return (
+            <div key={categoria.id} />
+          );
+        })}
+      </CarouselContainer>
+    </PageDefault>
   );
 }
 

@@ -9,10 +9,6 @@ margin-right:auto;
 }
 `;
 
-export const Loading = styled.div`
-text-align: center;
-`;
-
 export const Button = styled.button`
 color: var(--black);
 border: 1px solid var(--black);

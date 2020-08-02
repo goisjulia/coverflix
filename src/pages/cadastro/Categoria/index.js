@@ -4,10 +4,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField/index';
 import 'react-toastify/dist/ReactToastify.css';
-import loading from '../../../assets/gif/loading.gif';
 import {
-  FormContainer, SpanInfo, Loading, RightContainer, Button,
+  FormContainer, SpanInfo, RightContainer, Button,
 } from './styles';
+import useForm from '../../../hooks/useForm';
+import Loading from '../../../components/Loading/index';
 
 function Categoria() {
   const valoresIniciais = {
@@ -15,22 +16,9 @@ function Categoria() {
     descricao: '',
   };
 
+  const { handleChange, values, clearForm } = useForm(valoresIniciais);
+
   const [categorias, setCategorias] = useState([]);
-  const [dadosCategoria, setCategoria] = useState(valoresIniciais);
-
-  function setDadosCategoria(chave, valor) {
-    setCategoria({
-      ...dadosCategoria,
-      [chave]: valor,
-    });
-  }
-
-  function alterarCategoria(dadoNovo) {
-    setDadosCategoria(
-      dadoNovo.target.getAttribute('name'),
-      dadoNovo.target.value,
-    );
-  }
 
   const URL = window.location.hostname.includes('localhost')
     ? 'http://localhost:8080/categorias'
@@ -47,7 +35,7 @@ function Categoria() {
 
   function addCategoria(categoria) {
     const novaCategoria = {
-      id: dadosCategoria.length + 1,
+      id: values.length + 1,
       titulo: categoria.titulo,
       descricao: categoria.descricao,
     };
@@ -100,9 +88,10 @@ function Categoria() {
 
           <form onSubmit={function handleSubmit(submit) {
             submit.preventDefault();
-            if (dadosCategoria.titulo !== '') {
-              addCategoria(dadosCategoria);
-              setCategoria(valoresIniciais);
+            if (values.titulo !== '') {
+              addCategoria(values);
+
+              clearForm(valoresIniciais);
             } else {
               toast.warning('👻 Campo(s) obrigatório(s) em branco!', {
                 position: 'bottom-center',
@@ -120,18 +109,18 @@ function Categoria() {
             <FormField
               label="Nome da categoria*"
               type="text"
-              value={dadosCategoria.titulo}
+              value={values.titulo}
               name="titulo"
-              onChange={alterarCategoria}
+              onChange={handleChange}
               required
             />
 
             <FormField
               label="Descrição"
               type="textarea"
-              value={dadosCategoria.descricao}
+              value={values.descricao}
               name="descricao"
-              onChange={alterarCategoria}
+              onChange={handleChange}
             />
 
             <SpanInfo> * Campo obrigatório</SpanInfo>
@@ -141,9 +130,7 @@ function Categoria() {
               </Button>
             </RightContainer>
             {categorias.length === 0 && (
-              <Loading>
-                <img src={loading} alt="Carregando..." />
-              </Loading>
+              <Loading />
             )}
             <ul>
               {categorias.map((categoria, index) => (

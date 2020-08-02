@@ -20,9 +20,9 @@ function Carousel({
           </Title>
           {categoryExtraLink
             && (
-            <ExtraLink href={categoryExtraLink.url} target="_blank">
-              {categoryExtraLink.text}
-            </ExtraLink>
+              <ExtraLink href={categoryExtraLink.url} target="_blank">
+                {categoryExtraLink.text}
+              </ExtraLink>
             )}
         </>
       )}
@@ -46,9 +46,13 @@ function Carousel({
   );
 }
 
+Carousel.defaultProps = {
+  ignoreFirstVideo: false,
+};
+
 Carousel.propTypes = {
-  ignoreFirstVideo: PropTypes.bool.isRequired,
-  category: PropTypes.node.isRequired,
+  ignoreFirstVideo: PropTypes.bool,
+  category: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Carousel;

@@ -4,11 +4,11 @@ import Menu from '../Menu';
 import Footer from '../Footer';
 import Main from './styles';
 
-function PageDefault({ children }) {
+function PageDefault({ children, paddingMain }) {
   return (
     <>
       <Menu />
-      <Main>
+      <Main paddingMain={paddingMain}>
         {children}
       </Main>
       <Footer />
@@ -18,10 +18,12 @@ function PageDefault({ children }) {
 
 PageDefault.defaultProps = {
   children: '',
+  // paddingMain: 'initial',
 };
 
 PageDefault.propTypes = {
   children: PropTypes.node,
+  paddingMain: PropTypes.number,
 };
 
 export default PageDefault;

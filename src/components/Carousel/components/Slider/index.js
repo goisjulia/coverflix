@@ -22,9 +22,14 @@ function NextArrow(props) {
   );
 }
 
+NextArrow.defaultProps = {
+  className: '',
+  onClick: () => { },
+};
+
 NextArrow.propTypes = {
-  className: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 function PrevArrow(props) {
@@ -45,9 +50,14 @@ function PrevArrow(props) {
   );
 }
 
+PrevArrow.defaultProps = {
+  className: '',
+  onClick: () => { },
+};
+
 PrevArrow.propTypes = {
-  className: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export const SliderItem = styled.li`
