@@ -40,4 +40,13 @@ svg {
 /*
 .shadow:hover {
 } */
+
+@media(max-width: 800px){
+  opacity:1;
+
+  svg {
+    height: calc(100% - 32px);
+    width: 20pt;
+  }
+}
 `;

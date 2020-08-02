@@ -17,11 +17,6 @@ const VideoCardContainer = styled.a`
   margin-top: 16px;
   margin-bottom: 6px;
 
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
-
   &:not(:first-child) {
     margin-left: 20px;
   }

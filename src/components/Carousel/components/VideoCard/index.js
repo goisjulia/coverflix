@@ -22,7 +22,6 @@ function VideoCard({ videoTitle, videoURL }) {
         <VideoCardContainer.Background>
           <VideoCardContainer.Title>
             {videoTitle}
-            {' '}
           </VideoCardContainer.Title>
         </VideoCardContainer.Background>
       </VideoCardContainer>
