@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/img/Logo.png';
 import './Menu.css';
-import Button from '../Button';
+import Dropdown from '../Dropdown';
 
 function Menu() {
   return (
@@ -10,7 +10,7 @@ function Menu() {
       <Link to="/">
         <img src={Logo} alt="CoverFlix" className="Logo" />
       </Link>
-      <Button as={Link} className="ButtonLink" to="/cadastro/video"> Novo vídeo </Button>
+      <Dropdown titulo="Cadastro" links={[{ href: '/cadastro/categoria', titulo: 'Categoria' }, { href: '/cadastro/video', titulo: 'Vídeo' }]} />
     </nav>
   );
 }

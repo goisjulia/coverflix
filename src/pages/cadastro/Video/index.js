@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
@@ -42,26 +41,51 @@ function Video() {
             const categoriaId = categorias
               .find((categoria) => categoria.titulo === values.categoria);
 
-            videosRepository.create({
-              titulo: values.titulo,
-              url: values.url,
-              categoriaId: categoriaId.id,
-            })
-              .then(() => {
-                toast.success('🤘 Vídeo cadastrado com sucesso!', {
-                  position: 'bottom-center',
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                });
-
-                clearForm(valoresIniciais);
-
-                // history.push('/');
+            if (categoriaId === null || categoriaId === undefined) {
+              toast.warning('🙈 Categoria não encontrada!', {
+                position: 'bottom-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
               });
+              return;
+            }
+
+            if (values.titulo !== '' && values.url !== '' && values.categoria !== '') {
+              videosRepository.create({
+                titulo: values.titulo,
+                url: values.url,
+                categoriaId: categoriaId.id,
+              })
+                .then(() => {
+                  toast.success('🤘 Vídeo cadastrado com sucesso!', {
+                    position: 'bottom-center',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                  });
+
+                  clearForm(valoresIniciais);
+
+                  // history.push('/');
+                });
+            } else {
+              toast.warning('👻 Campo(s) obrigatório(s) em branco!', {
+                position: 'bottom-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              });
+            }
           }}
           >
             <FormField
@@ -92,10 +116,6 @@ function Video() {
               </Button>
             </RightContainer>
           </form>
-
-          <Link to="/cadastro/categoria">
-            Cadastrar Categoria
-          </Link>
           <ToastContainer />
         </FormContainer>
       </PageDefault>
