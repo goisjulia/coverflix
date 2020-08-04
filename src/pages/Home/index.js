@@ -4,7 +4,7 @@ import PageDefault from '../../components/PageDefault/index';
 import Loading from '../../components/Loading/index';
 import Carousel from '../../components/Carousel/index';
 import BannerMain from '../../components/BannerMain/index';
-import CarouselContainer from './styles';
+import { CarouselContainer, LoadingContainer } from './styles';
 
 function Home() {
   const [dadosIniciais, setDadosIniciais] = useState([]);
@@ -22,9 +22,13 @@ function Home() {
   return (
 
     <PageDefault paddingMain={0}>
+      {dadosIniciais.length === 0 && (
+      <LoadingContainer>
+        <Loading />
+      </LoadingContainer>
+      )}
 
       <CarouselContainer>
-        {dadosIniciais.length === 0 && (<Loading />)}
 
         {dadosIniciais.map((categoria, index) => {
           if (index === 0) {

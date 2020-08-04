@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import loading from '../../assets/gif/loading.gif';
+import './styles.css';
 
 const LoadingContainer = styled.div`
 text-align: center;
@@ -9,7 +9,17 @@ text-align: center;
 function Loading() {
   return (
     <LoadingContainer>
-      <img src={loading} alt="Carregando..." />
+      <div className="loader">
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
     </LoadingContainer>
   );
 }

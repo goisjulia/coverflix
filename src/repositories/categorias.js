@@ -13,6 +13,17 @@ function getAllWithVideos() {
     });
 }
 
+function getWithVideos(categoriaId) {
+  return fetch(`${URL_CATEGORIES}?id=${categoriaId}&_embed=videos`)
+    .then(async (response) => {
+      if (response.ok) {
+        const retorno = await response.json();
+        return retorno;
+      }
+      throw new Error(await response.status);
+    });
+}
+
 function getAll() {
   return fetch(`${URL_CATEGORIES}`)
     .then(async (response) => {
@@ -40,13 +51,9 @@ function create(categoria) {
   });
 }
 
-function deleteOne(categoria) {
-  return fetch(`${URL_CATEGORIES}`, {
+function deleteOne(categoriaId) {
+  return fetch(`${URL_CATEGORIES}/${categoriaId}`, {
     method: 'DELETE',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify(categoria),
   }).then(async (response) => {
     if (response.ok) {
       const retorno = await response.json();
@@ -58,6 +65,7 @@ function deleteOne(categoria) {
 
 export default {
   getAllWithVideos,
+  getWithVideos,
   getAll,
   create,
   deleteOne,
