@@ -1,6 +1,8 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import VideoCardContainer from './styles';
+import Button from '../../../Button/index';
 
 function getYouTubeId(youtubeURL) {
   return youtubeURL
@@ -12,12 +14,19 @@ function getYouTubeId(youtubeURL) {
 
 function VideoCard({ videoTitle, videoURL }) {
   const image = `https://img.youtube.com/vi/${getYouTubeId(videoURL)}/hqdefault.jpg`;
+  const history = useHistory();
+
+  function handleClick() {
+    history.push('/player', { videoTitle, url: videoURL });
+  }
+
   return (
-    <>
+    <Button.NoBorder
+      type="button"
+      onClick={handleClick}
+    >
       <VideoCardContainer
         url={image}
-        href={videoURL}
-        target="_blank"
       >
         <VideoCardContainer.Background>
           <VideoCardContainer.Title>
@@ -25,7 +34,7 @@ function VideoCard({ videoTitle, videoURL }) {
           </VideoCardContainer.Title>
         </VideoCardContainer.Background>
       </VideoCardContainer>
-    </>
+    </Button.NoBorder>
   );
 }
 

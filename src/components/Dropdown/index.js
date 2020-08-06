@@ -7,11 +7,15 @@ import DropdownBase from './styles';
 function Dropdown({ titulo, links }) {
   return (
     <DropdownBase className="dropdown">
-      <DropdownBase.Button className="dropbtn">
+      <DropdownBase.Button
+        className="dropbtn"
+      >
         {titulo}
         <Icon path={mdiChevronDown} size={1} />
       </DropdownBase.Button>
-      <DropdownBase.ListItens className="dropdown-content">
+      <DropdownBase.ListItens
+        className="dropdown-content"
+      >
         {links.map((link) => (
           <DropdownBase.Item href={link.href} key={`${link.titulo}`}>{link.titulo}</DropdownBase.Item>
         ))}

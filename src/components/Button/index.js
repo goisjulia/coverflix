@@ -56,4 +56,19 @@ Button.NoBorder = styled.button`
   }
 `;
 
+Button.NoBorderHover = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &:hover{
+    transform: scale(1.1);
+  }
+`;
+
 export default Button;

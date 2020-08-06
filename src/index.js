@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Video from './pages/cadastro/Video/index';
 import Categoria from './pages/cadastro/Categoria/index';
 import NotFound from './pages/erros/NotFound/index';
+import Player from './pages/Player/index';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -13,6 +14,7 @@ ReactDOM.render(
       <Route path="/" component={Home} exact />
       <Route path="/cadastro/video" component={Video} exact />
       <Route path="/cadastro/categoria" component={Categoria} exact />
+      <Route path="/player" component={Player} exact />
       <Route component={NotFound} />
     </Switch>
   </BrowserRouter>,

@@ -8,4 +8,7 @@ export default styled.main`
   ${({ paddingMain }) => css`
     padding: ${paddingMain};
   `}
+  ${({ color }) => css`
+    background: ${color};
+  `}
 `;

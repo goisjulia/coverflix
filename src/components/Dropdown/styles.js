@@ -5,8 +5,8 @@ const DropdownBase = styled.div`
   overflow: hidden;
   /* padding-bottom: 22px; */
 
-  &:hover{
-    & .dropdown-content {
+  &:hover {
+    & .dropdown-content{
       display: block;
     }
   }
@@ -30,14 +30,15 @@ DropdownBase.Button = styled.button`
 DropdownBase.ListItens = styled.div`
   display: none;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   min-width: 100px;
   z-index: 1;
   /* box-shadow: 0px 1px 3px 0px var(--white); */
 
   & a:hover{
-    color: var(--primary);
-    border-bottom: 1px solid var(--primary);
+    color: var(--white);
+    border-bottom: 2px solid var(--white);
+    background-color: var(--primary);
 }
 `;
 

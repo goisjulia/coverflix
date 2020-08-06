@@ -21,7 +21,7 @@ function Home() {
 
   return (
 
-    <PageDefault paddingMain={0}>
+    <PageDefault paddingMain={`${0}px`}>
       {dadosIniciais.length === 0 && (
       <LoadingContainer>
         <Loading />
