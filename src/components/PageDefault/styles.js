@@ -11,4 +11,10 @@ export default styled.main`
   ${({ color }) => css`
     background: ${color};
   `}
+  ${({ isCentered }) => isCentered && css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  `}
 `;

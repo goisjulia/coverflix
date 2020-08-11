@@ -5,9 +5,8 @@ const VideoContainer = styled.div`
   overflow: hidden;
   width: 70%;
   padding-top: 35%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40px;
+  margin: auto;
+  /* margin-right: auto; */
 
   @media (max-width: 1024px) {
     width: 100%;
@@ -24,6 +23,19 @@ const Iframe = styled.iframe`
   right: 0;
   width: 100%;
   height: 100%;
+  display: block;
+  border-right: 10px solid white;
+  border-bottom: 10px solid white;
+
+  @media (max-width: 1024px) {
+    border-right: 3px solid white;
+    border-bottom: 3px solid white;
+  }
 `;
 
-export { VideoContainer, Iframe };
+const PlayerTitle = styled.span`
+  color: var(--white);
+  display: inline-block;
+`;
+
+export { VideoContainer, Iframe, PlayerTitle };

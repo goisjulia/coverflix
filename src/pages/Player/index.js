@@ -17,11 +17,11 @@ function Player() {
   const youTubeID = getYouTubeId(url);
 
   return (
-    <PageDefault paddingMain={`${10}px`} color="#141414">
+    <PageDefault paddingMain={`${10}px`} color="#141414" isCentered>
       <VideoContainer>
         <Iframe
           title={videoTitle}
-          src={`https://www.youtube.com/embed/${youTubeID}?autoplay=0&mute=1`}
+          src={`https://www.youtube.com/embed/${youTubeID}?autoplay=0&mute=0`}
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

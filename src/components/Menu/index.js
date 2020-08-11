@@ -18,7 +18,6 @@ function Menu() {
           && (
             <Button.NoBorderHover
               type="button"
-              className="button icon-left"
               onClick={history.goBack}
             >
               <Icon
