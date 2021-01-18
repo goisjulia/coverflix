@@ -171,7 +171,9 @@ function Video() {
                         {' '}
                       </td>
                       <td>
-                        {categorias.find((categoria) => categoria.id === video.categoriaId).titulo}
+                        {categorias.find((categoria) => categoria.id === video.categoriaId)
+                          ? categorias.find((categoria) => categoria.id === video.categoriaId).titulo
+                          : ''}
                       </td>
                       {/* <td>
                         <Button.NoBorder
