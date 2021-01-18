@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react/no-array-index-key */
+import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { mdiClose } from '@mdi/js';
 import Icon from '@mdi/react';
 import PageDefault from '../../../components/PageDefault';
-import FormField from '../../../components/FormField';
-import useForm from '../../../hooks/useForm';
-import videosRepository from '../../../repositories/videos';
-import categoriasRepository from '../../../repositories/categorias';
+import FormField from '../../../components/FormField/index';
 import 'react-toastify/dist/ReactToastify.css';
 import {
-  Button, SpanInfo, RightContainer, FormContainer, LoadingContainer, Table,
+  SpanInfo, RightContainer, FormContainer, LoadingContainer, Table,
 } from '../CadastroDefault/styles';
+import useForm from '../../../hooks/useForm';
 import Loading from '../../../components/Loading/index';
+import categoriasRepository from '../../../repositories/categorias';
+import videosRepository from '../../../repositories/videos';
+import Button from '../../../components/Button/index';
 
 function Video() {
   const valoresIniciais = {
@@ -31,20 +33,15 @@ function Video() {
       .then((response) => {
         setCategorias(response);
       });
+  }, []);
+
+  useEffect(() => {
     videosRepository
       .getAll()
       .then((response) => {
         setVideos(response);
       });
   }, []);
-
-  // useEffect(() => {
-  //   videosRepository
-  //     .getAll()
-  //     .then((response) => {
-  //       setVideos(response);
-  //     });
-  // }, []);
 
   return (
     <>
@@ -77,7 +74,7 @@ function Video() {
                 url: values.url,
                 categoriaId: categoriaId.id,
               })
-                .then(() => {
+                .then((response) => {
                   toast.success('🤘 Vídeo cadastrado com sucesso!', {
                     position: 'bottom-center',
                     autoClose: 5000,
@@ -88,9 +85,20 @@ function Video() {
                     progress: undefined,
                   });
 
-                  clearForm(valoresIniciais);
+                  const newVideo = {
+                    id: response.id,
+                    titulo: values.titulo,
+                    url: values.url,
+                    categoriaId: categorias
+                      .find((categoria) => categoria.titulo === values.categoria).id,
+                  };
 
-                  // history.push('/');
+                  setVideos([
+                    ...videos,
+                    newVideo,
+                  ]);
+
+                  clearForm(valoresIniciais);
                 });
             } else {
               toast.warning('👻 Campo(s) obrigatório(s) em branco!', {
@@ -128,9 +136,9 @@ function Video() {
             />
             <SpanInfo> * Campo obrigatório</SpanInfo>
             <RightContainer>
-              <Button>
+              <Button.Default>
                 Cadastrar
-              </Button>
+              </Button.Default>
             </RightContainer>
 
             {videos.length === 0 && (
@@ -139,43 +147,50 @@ function Video() {
               </LoadingContainer>
             )}
 
-            {videos.length > 0 && (
+            {videos.length !== 0 && (
               <Table>
                 <thead>
                   <tr>
                     <th> Título </th>
                     <th> URL </th>
-                    <th> Ações </th>
+                    <th> Categoria </th>
+                    {/* <th> Ações </th> */}
                   </tr>
                 </thead>
                 <tbody>
                   {videos.map((video, index) => (
-                    <tr key={`${video}${index}`}>
+                    <tr key={`${video}_${index}`}>
                       <td>
+                        {' '}
                         {video.titulo}
+                        {' '}
                       </td>
                       <td>
+                        {' '}
                         {video.url}
+                        {' '}
                       </td>
                       <td>
+                        {categorias.find((categoria) => categoria.id === video.categoriaId).titulo}
+                      </td>
+                      {/* <td>
                         <Button.NoBorder
                           // eslint-disable-next-line react/jsx-no-bind
                           onClick={function handleClick(event) {
                             event.preventDefault();
-                            // deleteCategory(categoria.id);
                           }}
                         >
                           <Icon path={mdiClose} size={1} color="red" title="Remover" />
                         </Button.NoBorder>
-                      </td>
+                      </td> */}
                     </tr>
                   ))}
                 </tbody>
               </Table>
             )}
 
+            <ToastContainer />
           </form>
-          <ToastContainer />
         </FormContainer>
       </PageDefault>
     </>
