@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { mdiClose } from '@mdi/js';
+import Icon from '@mdi/react';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
@@ -7,8 +9,9 @@ import videosRepository from '../../../repositories/videos';
 import categoriasRepository from '../../../repositories/categorias';
 import 'react-toastify/dist/ReactToastify.css';
 import {
-  Button, SpanInfo, RightContainer, FormContainer,
+  Button, SpanInfo, RightContainer, FormContainer, LoadingContainer, Table,
 } from '../CadastroDefault/styles';
+import Loading from '../../../components/Loading/index';
 
 function Video() {
   const valoresIniciais = {
